@@ -1,0 +1,92 @@
+{% load crispy_forms_tags %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
+    <title>Lista de Contatos | Agenda</title>
+
+</head>
+<body>
+    <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg" style="background-color: #5e5d5d;">
+        <div class="container px-lg-5">
+            <a class="navbar-brand" style="color:white;">Agenda de Contatos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    {% comment %} <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!" style="color:white;">Home</a></li> {% endcomment %}
+                    <li class="nav-item"><a class="nav-link" href="#!" style="color:white;">Olá, {{user.get_username}}</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}?next={{request.path}}" style="color:white;">LogOut</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content-->
+        <section class="pt-4">
+            <div class="container px-lg-5" style="padding: 40px;">
+                <!-- Page Features-->
+                <div class="row gx-lg-5">
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                    <a href="{% url 'agenda:listar' %}">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <h3 class="fs-4 fw-bold">Listar Contatos</h3>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                    <a href="{% url 'agenda:cadastrar' %}">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <h3 class="fs-4 fw-bold">Cadastrar Contatos</h3>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                    <a href="{% url 'agenda:buscar_nome' %}">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <h3 class="fs-4 fw-bold">Buscar Contato por Nome</h3>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                    <a href="{% url 'agenda:cadastrar' %}">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <h3 class="fs-4 fw-bold">Buscar Contato por Letra</h3>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        
+    <div class="container">
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                {% comment %} <li class="nav-item"><a href= class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li> {% endcomment %}
+            </ul> 
+            <p class="text-center text-muted">&copy; 2023 | Implementação Sistemas Distribuídos | Adriel</p>
+        </footer>
+    </div>
+
+</body>
+</html>
+
+{% comment %}  {% endcomment %}
