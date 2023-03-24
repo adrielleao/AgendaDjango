@@ -37,10 +37,13 @@ class NomeListView(LoginRequiredMixin, ListView):
     context_object_name = 'contato'
 
     def get_queryset(self):
-        n = self.kwargs.get('nome', '')
         queryset = super().get_queryset()
+        try:
+            nome = self.request.GET['nome']
+        except:
+            nome = ''
         # return queryset.filter(usuario=self.request.user).filter(nome__icontains=name)
-        return queryset.filter(usuario=self.request.user).filter(nome__icontains=n)
+        return queryset.filter(usuario=self.request.user).filter(nome__icontains=nome)
 
 
 class ContatoDeleteView(LoginRequiredMixin, DeleteView):
