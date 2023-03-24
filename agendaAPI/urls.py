@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('agenda/', include('agenda.urls', namespace='agenda')),
     path('', RedirectView.as_view(url='agenda/home')),
-    path('accounts/', include('django.contrib.auth.urls'))
-
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('__debug__/', include('debug_toolbar.urls')),
 ] 
  
