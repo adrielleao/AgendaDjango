@@ -38,7 +38,10 @@ class NomeListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        nome = self.request.GET['nome']
+        try:
+            nome = self.request.GET['nome']
+        except:
+            nome = ''
         # return queryset.filter(usuario=self.request.user).filter(nome__icontains=name)
         return queryset.filter(usuario=self.request.user).filter(nome__icontains=nome)
 
