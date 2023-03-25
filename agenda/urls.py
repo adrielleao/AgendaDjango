@@ -1,5 +1,8 @@
 from django.urls import path
-from .views import HomeView, SignUpView, ContatoCreateView, ContatoListView, ContatoUpdateView, ContatoDeleteView, NomeListView
+from .views import (HomeView, SignUpView, 
+                    ContatoCreateView, ContatoListView, 
+                    ContatoUpdateView, ContatoDeleteView, 
+                    NomeListView, LetraListView)
 
 app_name = 'agenda'
 
@@ -10,6 +13,6 @@ urlpatterns = [
     path('listar/', ContatoListView.as_view(), name='listar'),
     path('editar/<int:pk>', ContatoUpdateView.as_view(), name='editar'),
     path('deletar/<int:pk>', ContatoDeleteView.as_view(), name='deletar'),
-    path('buscar_nome/', NomeListView.as_view(),name='buscar_nome'),
-    # path('buscar_letra', name='buscar_letra')
+    path('buscar_nome/', NomeListView.as_view(), name='buscar_nome'),
+    path('buscar_letra/', LetraListView.as_view(), name='buscar_letra')
 ] 

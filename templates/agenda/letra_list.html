@@ -1,20 +1,20 @@
 {% load crispy_forms_tags %}
 
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
-    <title>Buscar Nomes | Agenda</title>
+    <title>Buscar Letrar | Agenda</title>
 
 </head>
 <body>
-
+ 
     <nav class="navbar navbar-expand-lg" style="background-color: #5e5d5d;">
         <div class="container px-lg-5">
-            <a class="navbar-brand" style="color:white;">Buscar por nomes</a>
+            <a class="navbar-brand" style="color:white;">Buscar por Letra</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
@@ -30,9 +30,9 @@
     <form method="GET">
         {% csrf_token %}
         <div style='width: 400px;'>
-            <input type="text" name="nome" style='width: 400px; text-align: center; margin-bottom: 5px;'/>
+            <input type="text" name="letra" style='width: 400px; text-align: center; margin-bottom: 5px;'/>
         </div>
-        <button type="submit" style='width: 400px; text-align: center;' class="btn btn-primary" value="nome">Buscar nome</button>
+        <button type="submit" style='width: 400px; text-align: center;' class="btn btn-primary" value="letra">Buscar letra</button>
     </form>
     </main>
 
