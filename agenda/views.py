@@ -29,7 +29,6 @@ class ContatoListView(LoginRequiredMixin, ListView):
     context_object_name = 'contato'
 
     def get_queryset(self):
-
         queryset = super().get_queryset()
         return queryset.filter(usuario=self.request.user)
     
@@ -39,13 +38,17 @@ class NomeListView(LoginRequiredMixin, ListView):
     template_name = 'agenda/nome_list.html'
     context_object_name = 'contato'
 
+    # def get_queryset(self):
+    #     queryset = super().get_queryset()
+    #     try:
+    #         nome = self.request.GET['nome']
+    #     except:
+    #         nome = ''
+    #     return queryset.filter(usuario=self.request.user).filter(nome__icontains=nome)
+
     def get_queryset(self):
         queryset = super().get_queryset()
-        try:
-            nome = self.request.GET['nome']
-        except:
-            nome = ''
-        # return queryset.filter(usuario=self.request.user).filter(nome__icontains=name)
+        nome = self.request.GET.get('nome', '')
         return queryset.filter(usuario=self.request.user).filter(nome__icontains=nome)
     
 
@@ -54,12 +57,17 @@ class LetraListView(LoginRequiredMixin, ListView):
     template_name = 'agenda/letra_list.html'
     context_object_name = 'contato'
 
+    # def get_queryset(self):
+    #     queryset = super().get_queryset()
+    #     try:
+    #         letra = self.request.GET['letra']
+    #     except:
+    #         letra = ''
+    #     return queryset.filter(usuario=self.request.user).filter(nome__startswith=letra)
+    
     def get_queryset(self):
         queryset = super().get_queryset()
-        try:
-            letra = self.request.GET['letra']
-        except:
-            letra = ''
+        letra = self.request.GET.get('letra', '')
         return queryset.filter(usuario=self.request.user).filter(nome__startswith=letra)
 
 
@@ -71,6 +79,7 @@ class ContatoUpdateView(LoginRequiredMixin, UpdateView):
     model = Contato
     fields = ['nome', 'telefone', 'email']
     success_url = reverse_lazy('agenda:home')
+
 
 class SignUpView(CreateView):
     form_class = UserCreationForm
